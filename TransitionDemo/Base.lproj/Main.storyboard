@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hrM-Qc-Ffh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Colors-->
@@ -144,28 +145,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWV-Th-wDE">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-4U-Swi">
-                                        <rect key="frame" x="279" y="8" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="281" y="72" width="37.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5s4-4U-Swi" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="top" constant="8" id="8RO-q7-eDH"/>
+                                    <constraint firstItem="5s4-4U-Swi" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="top" constant="72" id="8RO-q7-eDH"/>
                                     <constraint firstAttribute="centerX" secondItem="5s4-4U-Swi" secondAttribute="centerX" id="eU2-CV-F5k"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GWV-Th-wDE" firstAttribute="top" secondItem="RbW-KJ-vdH" secondAttribute="topMargin" id="1UY-nn-0lv"/>
                             <constraint firstItem="GWV-Th-wDE" firstAttribute="leading" secondItem="RbW-KJ-vdH" secondAttribute="leading" id="Ui1-br-66V"/>
                             <constraint firstItem="Idr-ph-xEa" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="bottom" id="cW9-Xe-9ME"/>
                             <constraint firstAttribute="trailing" secondItem="GWV-Th-wDE" secondAttribute="trailing" id="i0X-Xf-JBH"/>
-                            <constraint firstItem="GWV-Th-wDE" firstAttribute="top" secondItem="6hO-js-hoi" secondAttribute="bottom" id="udb-Dq-npu"/>
                         </constraints>
                     </view>
                     <connections>
@@ -188,10 +189,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="iQ4-e4-dzU" id="1Y5-zb-aFX"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4Mk-oG-xzr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbC-b3-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="iQ4-e4-dzU" customClass="ViewAnimations" customModule="TransitionDemo" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="566" y="674"/>
         </scene>
