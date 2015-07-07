@@ -26,10 +26,34 @@ class MainViewController: UIViewController {
         }
     }
 
+    @IBAction func pinch(recognizer: UIPinchGestureRecognizer) {
 
+        // now lets deal with different states that the gesture recognizer sends
+        switch (recognizer.state) {
+
+        case .Began:
+
+            transitions?.interactionController = UIPercentDrivenInteractiveTransition()
+
+            let button = recognizer.view as! UIButton
+            performSegueWithIdentifier(button.titleForState(.Normal), sender: button)
+
+
+        case .Changed:
+            transitions?.interactionController?.updateInteractiveTransition(recognizer.scale - 1)
+
+        default: // .Ended, .Cancelled, .Failed ...
+            if recognizer.velocity > 0 || (recognizer.scale > 1.5 && recognizer.velocity == 0) {
+                transitions?.interactionController?.finishInteractiveTransition()
+            } else {
+                transitions?.interactionController?.cancelInteractiveTransition()
+            }
+            transitions?.interactionController = nil
+        }
+    }
 }
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var color: UIColor!
     var colorName: String!
@@ -37,6 +61,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var label: UILabel!
+
+    @IBOutlet var enterPanGesture: UIScreenEdgePanGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +72,59 @@ class DetailViewController: UIViewController {
         colorView.backgroundColor = color
         label.text = colorName
         label.textColor = labelColor
+
+        if let transitions = transitions {
+            let enterPanGesture = UIScreenEdgePanGestureRecognizer(target: transitions, action: "pan:")
+            enterPanGesture.edges = .Left
+            view.addGestureRecognizer(enterPanGesture)
+        }
     }
 }
 
-class ViewAnimations: NSObject, UINavigationControllerDelegate {
+extension UIViewController {
+
+    var transitions: Transitions? {
+        return navigationController?.delegate as? Transitions
+    }
+}
+
+class Transitions: NSObject, UINavigationControllerDelegate {
+
+    var interactionController: UIPercentDrivenInteractiveTransition?
+    @IBOutlet weak var navigationController: UINavigationController!
 
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        println("animating from \(fromVC) to \(toVC)")
         let animations = ColorAnimations()
         animations.reverse = fromVC is DetailViewController
         return animations
+    }
+
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactionController
+    }
+
+    func pan(recognizer: UIScreenEdgePanGestureRecognizer) {
+        let translation = recognizer.translationInView(recognizer.view!)
+        let d =  translation.x / CGRectGetWidth(recognizer.view!.bounds)
+
+        switch (recognizer.state) {
+
+        case .Began:
+            interactionController = UIPercentDrivenInteractiveTransition()
+            navigationController?.popViewControllerAnimated(true)
+
+        case .Changed:
+            interactionController?.updateInteractiveTransition(d)
+
+        default:
+
+            if recognizer.velocityInView(recognizer.view!).x > 0 {
+                interactionController?.finishInteractiveTransition()
+            } else {
+                interactionController?.cancelInteractiveTransition()
+            }
+            interactionController = nil
+        }
     }
 
 }
@@ -123,7 +192,6 @@ class ColorAnimations: NSObject, UIViewControllerAnimatedTransitioning {
                     transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
                 }
         }
-
 
     }
 }
