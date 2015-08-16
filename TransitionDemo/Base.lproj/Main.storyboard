@@ -147,7 +147,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-4U-Swi">
-                                        <rect key="frame" x="279" y="72" width="42" height="20.5"/>
+                                        <rect key="frame" x="279" y="72" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -188,15 +188,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="oA6-Kl-lfH" id="UTj-qq-4iq"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4Mk-oG-xzr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbC-b3-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="oA6-Kl-lfH" customClass="Transitions" customModule="TransitionDemo" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="566" y="674"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uph-Lb-Rrb"/>
+        <segue reference="To4-OE-E8f"/>
     </inferredMetricsTieBreakers>
 </document>
