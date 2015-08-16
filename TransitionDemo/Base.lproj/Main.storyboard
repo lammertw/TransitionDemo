@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hrM-Qc-Ffh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hrM-Qc-Ffh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -44,7 +44,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-Kt-s5D">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
                                         <state key="normal" title="Yellow">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -88,7 +88,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-NL-vOH">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
                                         <state key="normal" title="Green">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -144,28 +144,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWV-Th-wDE">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-4U-Swi">
-                                        <rect key="frame" x="279" y="8" width="42" height="21"/>
+                                        <rect key="frame" x="279" y="72" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5s4-4U-Swi" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="top" constant="8" id="8RO-q7-eDH"/>
+                                    <constraint firstItem="5s4-4U-Swi" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="top" constant="72" id="8RO-q7-eDH"/>
                                     <constraint firstAttribute="centerX" secondItem="5s4-4U-Swi" secondAttribute="centerX" id="eU2-CV-F5k"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GWV-Th-wDE" firstAttribute="top" secondItem="RbW-KJ-vdH" secondAttribute="top" id="2qY-hW-5h4"/>
                             <constraint firstItem="GWV-Th-wDE" firstAttribute="leading" secondItem="RbW-KJ-vdH" secondAttribute="leading" id="Ui1-br-66V"/>
                             <constraint firstItem="Idr-ph-xEa" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="bottom" id="cW9-Xe-9ME"/>
                             <constraint firstAttribute="trailing" secondItem="GWV-Th-wDE" secondAttribute="trailing" id="i0X-Xf-JBH"/>
-                            <constraint firstItem="GWV-Th-wDE" firstAttribute="top" secondItem="6hO-js-hoi" secondAttribute="bottom" id="udb-Dq-npu"/>
                         </constraints>
                     </view>
                     <connections>
