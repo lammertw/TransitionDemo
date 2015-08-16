@@ -21,12 +21,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYF-o6-U7H">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Red">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="To4-OE-E8f"/>
+                                            <outletCollection property="gestureRecognizers" destination="jli-hb-Yan" appends="YES" id="Vta-bR-T5H"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Red" id="To4-OE-E8f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -43,12 +45,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-Kt-s5D">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Yellow">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="BcY-tE-eVc"/>
+                                            <outletCollection property="gestureRecognizers" destination="mdc-kI-7Vg" appends="YES" id="95q-RQ-EB9"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Yellow" id="BcY-tE-eVc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,12 +69,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UC-oh-ATo">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Blue">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="uph-Lb-Rrb"/>
+                                            <outletCollection property="gestureRecognizers" destination="5dc-lU-lNc" appends="YES" id="0Vs-bS-R44"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Blue" id="uph-Lb-Rrb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -87,12 +93,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-NL-vOH">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" title="Green">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="UXP-ag-B2W"/>
+                                            <outletCollection property="gestureRecognizers" destination="XFb-mZ-UXA" appends="YES" id="kST-0n-DDU"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Green" id="UXP-ag-B2W"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -128,6 +136,26 @@
                     <navigationItem key="navigationItem" id="ldz-oW-TAf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="jli-hb-Yan">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="TUb-KK-qSI"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="mdc-kI-7Vg">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="qRx-VQ-wY5"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="5dc-lU-lNc">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="qot-GG-xFZ"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="XFb-mZ-UXA">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="WZz-EV-6Qd"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1378" y="674"/>
         </scene>
@@ -154,6 +182,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="5s4-4U-Swi" firstAttribute="top" secondItem="GWV-Th-wDE" secondAttribute="top" constant="72" id="8RO-q7-eDH"/>
                                     <constraint firstAttribute="centerX" secondItem="5s4-4U-Swi" secondAttribute="centerX" id="eU2-CV-F5k"/>
@@ -193,12 +222,16 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbC-b3-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="oA6-Kl-lfH" customClass="Transitions" customModule="TransitionDemo" customModuleProvider="target"/>
+                <customObject id="oA6-Kl-lfH" customClass="Transitions" customModule="TransitionDemo" customModuleProvider="target">
+                    <connections>
+                        <outlet property="navigationController" destination="hrM-Qc-Ffh" id="gCv-aG-UnX"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="566" y="674"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="To4-OE-E8f"/>
+        <segue reference="UXP-ag-B2W"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,25 @@ class MainViewController: UIViewController {
         }
     }
 
+    @IBAction func pinch(sender: UIPinchGestureRecognizer) {
+        switch (sender.state) {
+
+        case .Began:
+            transitions?.interactionController = UIPercentDrivenInteractiveTransition()
+            let button = sender.view as! UIButton
+            performSegueWithIdentifier(button.titleForState(.Normal), sender: button)
+        case .Changed:
+            transitions?.interactionController?.updateInteractiveTransition(sender.scale - 1)
+
+        default: // .Ended, .Cancelled, .Failed ...
+            if sender.velocity > 0 || (sender.scale > 1.5 && sender.velocity == 0) {
+                transitions?.interactionController?.finishInteractiveTransition()
+            } else {
+                transitions?.interactionController?.cancelInteractiveTransition()
+            }
+            transitions?.interactionController = nil
+        }
+    }
 
 }
 
@@ -46,15 +65,59 @@ class DetailViewController: UIViewController {
         colorView.backgroundColor = color
         label.text = colorName
         label.textColor = labelColor
+
+        if let transitions = transitions {
+            let enterPanGesture = UIScreenEdgePanGestureRecognizer(target: transitions, action: "pan:")
+            enterPanGesture.edges = .Left
+            view.addGestureRecognizer(enterPanGesture)
+        }
+    }
+}
+
+extension UIViewController {
+
+    var transitions: Transitions? {
+        return navigationController?.delegate as? Transitions
     }
 }
 
 class Transitions: NSObject, UINavigationControllerDelegate {
 
+    @IBOutlet weak var navigationController: UINavigationController!
+    var interactionController: UIPercentDrivenInteractiveTransition?
+
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let animations = ColorAnimations()
         animations.reverse = operation == .Pop
         return animations
+    }
+
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactionController
+    }
+
+    func pan(recognizer: UIScreenEdgePanGestureRecognizer) {
+        let translation = recognizer.translationInView(recognizer.view!)
+        let d =  translation.x / CGRectGetWidth(recognizer.view!.bounds)
+
+        switch (recognizer.state) {
+
+        case .Began:
+            interactionController = UIPercentDrivenInteractiveTransition()
+            navigationController?.popViewControllerAnimated(true)
+
+        case .Changed:
+            interactionController?.updateInteractiveTransition(d)
+
+        default:
+
+            if recognizer.velocityInView(recognizer.view!).x > 0 {
+                interactionController?.finishInteractiveTransition()
+            } else {
+                interactionController?.cancelInteractiveTransition()
+            }
+            interactionController = nil
+        }
     }
 }
 
