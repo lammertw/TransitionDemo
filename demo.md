@@ -109,6 +109,10 @@ The new animation:
     var sourceFrame = mainViewController.selectedView!.frame
     var targetFrame = detailViewController.view.frame
 
+    if reverse {
+        swap(&sourceFrame, &targetFrame)
+    }
+
     animationView.frame = sourceFrame
 
     detailViewController.view.hidden = true
@@ -271,3 +275,6 @@ Run. End code.
 Few notes:
 
 - By adding navigation controller delegate, none of the swipe gestures work anymore regardless wether or not you return animations.
+  - Either add them back yourself
+  - Or only set the navigation controller delegate when you need custom transitions
+- Modal transitions are not done though a navigation controller delegate.
