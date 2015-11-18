@@ -21,13 +21,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYF-o6-U7H">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Red">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="To4-OE-E8f"/>
+                                            <outletCollection property="gestureRecognizers" destination="fXu-sk-zmg" appends="YES" id="5Q7-qh-ZoF"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Red" id="To4-OE-E8f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -44,13 +46,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibm-Kt-s5D">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Yellow">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="BcY-tE-eVc"/>
+                                            <outletCollection property="gestureRecognizers" destination="wIx-wQ-wEe" appends="YES" id="pff-fo-poz"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Yellow" id="BcY-tE-eVc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,13 +71,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UC-oh-ATo">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Blue">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="uph-Lb-Rrb"/>
+                                            <outletCollection property="gestureRecognizers" destination="9lZ-Sv-g24" appends="YES" id="hgK-uH-PBq"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Blue" id="uph-Lb-Rrb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,13 +96,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-NL-vOH">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="268"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Green">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MLK-W0-mhh" kind="show" id="UXP-ag-B2W"/>
+                                            <outletCollection property="gestureRecognizers" destination="xVY-lv-Cbn" appends="YES" id="zfo-6L-VN3"/>
+                                            <segue destination="MLK-W0-mhh" kind="show" identifier="Green" id="UXP-ag-B2W"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -132,6 +140,26 @@
                     <navigationItem key="navigationItem" id="ldz-oW-TAf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="fXu-sk-zmg">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="zEi-Bv-n2k"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="wIx-wQ-wEe">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="iO6-LW-r68"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="9lZ-Sv-g24">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="vuv-bm-0iF"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="xVY-lv-Cbn">
+                    <connections>
+                        <action selector="pinch:" destination="BYZ-38-t0r" id="1a0-1s-aES"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1378" y="674"/>
         </scene>
@@ -151,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-4U-Swi">
-                                        <rect key="frame" x="281.5" y="72" width="37.5" height="18"/>
+                                        <rect key="frame" x="282" y="72" width="38" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -192,10 +220,16 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="wY5-nf-WqO" id="qxU-Xz-LPI"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4Mk-oG-xzr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbC-b3-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="wY5-nf-WqO" customClass="Transitions" customModule="TransitionDemo" customModuleProvider="target">
+                    <connections>
+                        <outlet property="navigationController" destination="hrM-Qc-Ffh" id="snD-6w-e7c"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="566" y="674"/>
         </scene>
